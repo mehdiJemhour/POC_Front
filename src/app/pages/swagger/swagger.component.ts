@@ -13,6 +13,9 @@ export class SwaggerComponent implements OnInit {
   private fileName;
   self 
 
+  collapse1 : boolean = true
+  collapse2 : boolean = false
+
   columnAfter = [
     
     
@@ -30,7 +33,7 @@ rowDataExtract = []
   claimsData : boolean = false
   constructor(private settings: AppService ,private route: ActivatedRoute) { 
     this.self = SwaggerComponent.title
-    this.route.params.subscribe( params => this.fileName = params);
+   this.route.params.subscribe( params => this.fileName = params);
   }
 
   ngOnInit() {
@@ -40,7 +43,7 @@ rowDataExtract = []
       this.columnBefore =  this.prepareDataTableHeaders(res[0])
       this.rowData = []
     
-      if(this.fileName.id == "ENTORIA")
+      if(this.fileName.queryParams == "ENTORIA")
       {res.forEach(e =>{
       this.rowData.push({...e,"Ncontrat Compagnie" : e["N.contrat Compagnie"]})
       })}
@@ -60,7 +63,7 @@ rowDataExtract = []
       this.columnAfter =  this.prepareDataTableHeaders(res[0])
       this.rowDataExtract = []
       
-      if(this.fileName.id == "ENTORIA")
+      if(this.fileName.queryParams == "ENTORIA")
       {res.forEach(e =>{
         this.rowDataExtract.push({...e,"Ncontrat Compagnie" : e["N.contrat Compagnie"]})
       })}
@@ -119,6 +122,7 @@ rowDataExtract = []
         let header: any = {};
         header['headerName'] = propertyName;
         header['field'] = propertyName.replace('.',''); 
+        header['filter'] =  'searchFilterComponent'
         result.push(header);           
         })
        

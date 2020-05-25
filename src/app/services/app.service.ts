@@ -29,14 +29,15 @@ export class AppService {
   //get File data
   
   get(fileName : any) {
+    debugger
     let path : string = null ;
-    if(fileName.id == "ARL - Hotel Progam") {
+    if(fileName.queryParams == "ARL - Hotel Progam") {
      
     
         path = "https://d3p73jccieq6p3.cloudfront.net/Before_ARL_Hotel.json"
         
       } 
-    else if ( fileName.id == "ENTORIA")  {
+    else if ( fileName.queryParams == "ENTORIA")  {
         path = "https://d3p73jccieq6p3.cloudfront.net/Before_transformation.json "
       
       } 
@@ -45,15 +46,15 @@ export class AppService {
 
   
   getExtract(fileName : any) {
-    
+    debugger
     let path : string = null ;
-    if(fileName.id == "ARL - Hotel Progam") {
+    if(fileName.queryParams == "ARL - Hotel Progam") {
      
     
         path = "https://d3p73jccieq6p3.cloudfront.net/After_ARL_Hotel_extract.json"
         
       } 
-    else if ( fileName.id == "ENTORIA")  {
+    else if ( fileName.queryParams == "ENTORIA")  {
         path = "https://d3p73jccieq6p3.cloudfront.net/After_transformation.json "
       
       } 

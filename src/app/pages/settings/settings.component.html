@@ -6,10 +6,12 @@
     <div class="col-md-12">
       <div class="card border-0 rounded-0">
         <div class="card-title mb-1 p-3">
-          <h5>Basic table</h5>
+          <h5>Bordereaux Administration</h5>
         </div>
         <div class="card-body">
-          <app-grid></app-grid>
+          
+          <app-grid *ngIf="columnAfter.length !== 0" [columnDefs]="columnAfter" [rowData]="rowData" ></app-grid>
+          
         </div>
       </div>
 

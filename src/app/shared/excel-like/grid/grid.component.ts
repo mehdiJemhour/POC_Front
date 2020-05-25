@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AllCommunityModules, GridApi, Module } from '@ag-grid-community/all-modules';
-import { EmployeeService } from '../component/services/employee.service';
 import { SearchFilterComponent } from '../component/search-filter/search-filter.component';
 import { StatusRendererComponent } from '../component/status-renderer/status-renderer.component';
 import { StreamEditorComponent } from '../component/stream-editor/stream-editor.component';
@@ -12,10 +11,13 @@ import { StreamEditorComponent } from '../component/stream-editor/stream-editor.
 })
 export class GridComponent implements OnInit {
 
+  @Input() rowData: any[];
+  @Input() columnDefs: any[];
+
   private gridApi: GridApi;
   private paginationPageSize = 5;
   private totalPages = 0;
-  private rowData = [];
+ // private rowData = [];
   private frameworkComponents = {
     searchFilterComponent: SearchFilterComponent,
     statusRendererComponent: StatusRendererComponent,
@@ -47,18 +49,13 @@ export class GridComponent implements OnInit {
     return this.modules;
   }
 
-  columnDefs = [
-    { headerName: 'Employee Id', field: 'id' },
-    { headerName: 'Employee Name', field: 'name', filter: 'searchFilterComponent' },
-    { headerName: 'Unit', field: 'unit' },
-    { headerName: 'Technology stream', field: 'stream', cellEditor: 'streamEditorComponent', editable: true, },
-    { headerName: 'Status', field: 'status', cellRenderer: 'statusRendererComponent' }
-  ];
 
-  constructor(private employeeService: EmployeeService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    this.employeeService.getEmployees().subscribe(data => { this.rowData = data; });
+    
+  
   }
 
   onGridReady(params) {

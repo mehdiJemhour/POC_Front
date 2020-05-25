@@ -5,17 +5,65 @@
 
     <div class="col-md-12">
       <div class="card border-0 rounded-0">
-        <div class="card-title mb-1 p-3">
-          <h5>Basic table</h5>
-        </div>
-        <div class="card-body">
-          
+        <div class="card-title  mb-1 p-3">
+         
+            <div class="clear-fix mt-2">
+              <div class="float-left">
+                <h5>Original Bordereaux</h5>
+
+              </div>
+              <div class="float-right">
+                <a  *ngIf="!collapse1"  class="btn btn-sm font-weight-bold btn-outline-info border-0" (click)="collapse1 = !collapse1"><i class="fas fa-expand-arrows-alt"></i>&nbsp; Expand </a>
+                <button  *ngIf="collapse1"   class="btn btn-sm font-weight-bold btn-outline-info border-0" (click)="collapse1 = !collapse1"><i class="fa fa-compress-alt"></i>&nbsp; Collapse </button>
+              </div>
+            </div>
+         
+    
 
         </div>
-      </div>
+        
+
+        <div *ngIf="collapse1" class="card-body">
+          
+          <app-grid *ngIf="columnBefore.length !== 0" [columnDefs]="columnBefore" [rowData]="rowData" ></app-grid>
+          
+        </div>
+      
+    </div>
 
     </div>
   </div>
 
+  <div class="row">
+
+    <div class="col-md-12 mb-4">
+
+      <div class="card border-0 rounded-0">
+        <div class="card-title collapsible mb-1 p-3 ">
+         
+          <div class="clear-fix mt-2">
+            <div class="float-left">
+              <h5>Data Extract Upload</h5>
+
+            </div>
+            <div class="float-right">
+              <a  *ngIf="!collapse2"  class="btn btn-sm font-weight-bold btn-outline-info border-0" (click)="collapse2 = !collapse2"><i class="fas fa-expand-arrows-alt"></i>&nbsp; Expand </a>
+              <button  *ngIf="collapse2"   class="btn btn-sm font-weight-bold btn-outline-info border-0" (click)="collapse2 = !collapse2"><i class="fa fa-compress-alt"></i>&nbsp; Collapse </button>
+            </div>
+          </div>
+       
   
+
+      </div>
+      <div  *ngIf="collapse2" class="content">
+        <div class="card-body">
+          
+          <app-grid *ngIf="columnAfter.length !== 0" [columnDefs]="columnAfter" [rowData]="rowDataExtract" ></app-grid>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
 </div>

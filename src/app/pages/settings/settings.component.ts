@@ -37,19 +37,21 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger
   
     this.loadData()
   }
   
 
   loadData(){
+    debugger
     //after
     this.modifications = {}
     this.list$.next([])
     this.settings.getExtract(this.fileName).subscribe((res:any[]) => {
      this.columnAfter =  this.prepareDataTableHeaders(res[0])
       this.rowData = []
-      if(this.fileName.id == "ENTORIA")
+      if(this.fileName.queryParams == "ENTORIA")
       {res.forEach(e =>{
       this.rowData.push({...e,"Ncontrat Compagnie" : e["N.contrat Compagnie"]})
       })}
@@ -95,6 +97,7 @@ export class SettingsComponent implements OnInit {
         let header: any = {};
         header['headerName'] = propertyName;
         header['field'] = propertyName.replace('.',''); 
+        header['filter'] =  'searchFilterComponent'
         result.push(header);           
         })
        

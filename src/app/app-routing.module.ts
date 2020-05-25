@@ -10,7 +10,7 @@ export const routes: Routes = [
   {path: '',   redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {component: SettingsComponent, path: "excel"},
-  {component: SwaggerComponent, path: "report/:id"},
+  {component: SwaggerComponent, path: "pass"},
   {component: ReportComponent, path: "reportData"},
 ];
 

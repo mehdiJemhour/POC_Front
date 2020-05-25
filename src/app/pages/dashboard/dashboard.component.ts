@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['excel',{queryParams :id,skipLocationChange : true}]);  }
 
   get_report(id : any){
-  this.router.navigate(['report',{queryParams :id,skipLocationChange : true}]);  }
+    debugger
+  this.router.navigate(['pass',{queryParams :id,skipLocationChange : true}]);  }
 
 }
