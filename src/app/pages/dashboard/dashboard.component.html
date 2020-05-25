@@ -1,0 +1,75 @@
+<div>
+
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Progress Screen</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <div class="table-responsive">
+              <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                    <th>MGA</th>
+                    <th>PA Agreement</th>
+                    <th>Program</th>
+                    <th>Reporting Period</th>
+                    <th>Control Total</th>
+                    <th>Gross Premium</th>
+                    <th>Bordereaux Administration</th>
+                    <th>Access Report</th>
+                    <th>Data Report</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr >
+                    <td>ENTORIA</td>
+                    <td>ENTORIA</td>
+                    <td>FIDELIDADE Assurances</td>
+                    <td>August, 2018</td>
+                    <td>15,047,296.92</td>
+                    <td>15,047,296.92</td>
+                    <td >
+                      <a class="btn btn-md btn-screen rounded-circle" (click)="load_data('ENTORIA')"><i class="fa fa-cloud-upload-alt"></i></a>
+                    </td>
+                    <td>
+                      <a class="btn btn-md btn-screen rounded-circle"  (click)="get_report('ENTORIA')"><i class="fa fa-share-square"></i></a>
+                    </td>
+                    <td>
+                      <a class="btn btn-md btn-screen rounded-circle"  (click)="get_reportData()"><i class="fa fa-chart-line"></i></a>
+                    </td>
+                  </tr>
+                  <tr >
+                    <td>All Risks Ltd</td>
+                    <td>All Risks</td>
+                    <td>ARL - Hotel Progam</td>
+                    <td>Mars, 2020</td>
+                    <td>4,430,204.00</td>
+                    <td>4,430,204.00</td>
+                    <td >
+                      <a class="btn btn-md btn-screen rounded-circle" (click)="load_data('ARL - Hotel Progam')"><i class="fa fa-cloud-upload-alt"></i></a>
+                    </td>
+                    <td>
+                      <a class="btn btn-md btn-screen rounded-circle"  (click)="get_report('ARL - Hotel Progam')"><i class="fa fa-share-square"></i></a>
+                    </td>
+                    <td>
+                      <a class="btn btn-md btn-screen rounded-circle"  (click)="get_reportData()"><i class="fa fa-chart-line"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+</div>
