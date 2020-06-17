@@ -23,8 +23,15 @@ import { PaginationComponent } from './shared/excel-like/component/pagination/pa
 import { SearchFilterComponent } from './shared/excel-like/component/search-filter/search-filter.component';
 import { StreamEditorComponent } from './shared/excel-like/component/stream-editor/stream-editor.component';
 import { StatusRendererComponent } from './shared/excel-like/component/status-renderer/status-renderer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/excel-like/component/common/material.module';
+import { ImportComponent } from './pages/importing/importing.component';
+import { HeaderComponent } from './pages/importing/components/header/header.component';
+import { ImportFileComponent } from './pages/importing/components/import-file/import-file.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './pages/importing/components/modal/modal.component';
+import { CalculatorComponent } from './pages/importing/components/calculator/calculator.component';
 
 
 
@@ -44,6 +51,11 @@ import { MaterialModule } from './shared/excel-like/component/common/material.mo
     SearchFilterComponent,
     StreamEditorComponent,
     StatusRendererComponent,
+    ImportComponent,
+    HeaderComponent,
+    ImportFileComponent,
+    ModalComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +69,13 @@ import { MaterialModule } from './shared/excel-like/component/common/material.mo
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
-    ],
+    MaterialModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+    NgbModalModule
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

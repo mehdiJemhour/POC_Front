@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add new column</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Close Modal')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div>
+        <input type="text" [(ngModel)]="columnDefinition.field" placeholder="Column Name" required />
+        Value Type : <select [(ngModel)]="columnDefinition.type" name="valueType">
+            <option value="static">Static</option>
+            <option value="calculed">Calculated</option>
+        </select>
+        <div class="mt-3" *ngIf="columnDefinition.type == 'static';else calculated">
+            Default Value: <input type="text" [(ngModel)]="columnDefinition.value" required>
+        </div>
+
+        <ng-template #calculated>
+            <calculator [columns]="columnDefs" (onInput)="onInput($event)">
+            </calculator>
+        </ng-template>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="onSave()">Save</button>
+    </div>

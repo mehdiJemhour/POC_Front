@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AllCommunityModules, GridApi, Module } from '@ag-grid-community/all-modules';
 import { SearchFilterComponent } from '../component/search-filter/search-filter.component';
 import { StatusRendererComponent } from '../component/status-renderer/status-renderer.component';
 import { StreamEditorComponent } from '../component/stream-editor/stream-editor.component';
+import { AgGridAngular } from '@ag-grid-community/angular';
 
 @Component({
   selector: 'app-grid',
@@ -13,11 +14,12 @@ export class GridComponent implements OnInit {
 
   @Input() rowData: any[];
   @Input() columnDefs: any[];
+  @ViewChild('agGrid', null) agGrid: AgGridAngular;
 
   private gridApi: GridApi;
   private paginationPageSize = 5;
   private totalPages = 0;
- // private rowData = [];
+  // private rowData = [];
   private frameworkComponents = {
     searchFilterComponent: SearchFilterComponent,
     statusRendererComponent: StatusRendererComponent,
@@ -54,8 +56,8 @@ export class GridComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
-  
+
+
   }
 
   onGridReady(params) {

@@ -1,0 +1,44 @@
+<div class="mb-1 p-3">
+    <form [formGroup]="bordereauInfo">
+        <div class="col-12">
+            <div class="d-flex flex-wrap mga-attr-container divs-container">
+                <div>
+                    <p>MGA</p>
+                    <input type="text" id="mga" formControlName="mga" required>
+                </div>
+                <div>
+                    <p>PA Agreement</p>
+                    <input type="text" id="paAgreement" formControlName="paAgreement">
+                </div>
+                <div>
+                    <p>Program</p>
+                    <input type="text" id="program" formControlName="program">
+                </div>
+
+                <div style="min-width: 254px;">
+                    <p>Reporting Period</p>
+                    <div class="d-flex justify-content-center">
+                        <div>
+
+                            <ng-select style="width: 150px;" id="reportingMonth"
+                                [class.is-invalid]="isValid('reportingMonth')" formControlName="reportingMonth"
+                                [items]="reportingMonths">
+                            </ng-select>
+                        </div>
+                        <div>
+
+                            <ng-select style="width: 100px;" id="reportingYear"
+                                [class.is-invalid]="isValid('reportingYear')" formControlName="reportingYear"
+                                [items]="reportingYears"></ng-select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p>Received Date</p>
+                    <input type="date" id="receivedDate" formControlName="receivedDate" max="{{maxToday}}">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

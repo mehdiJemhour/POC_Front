@@ -1,0 +1,20 @@
+<div class="card border-0 rounded-0">
+    <header-component #insideForm></header-component>
+</div>
+<div class="card border-0 rounded-0 mt-3 p-3 browse-file">
+    <import-file (onLoadFile)="loadedFile($event)"></import-file>
+</div>
+<div class="card border-0 rounded-0 mt-3 p-3" *ngIf="sheetNames.length > 0">
+    <div class="sheet-name">
+        <span>Select sheet name:</span>
+        <ng-select [items]="sheetNames" (change)="onSelect($event)"></ng-select>
+    </div>
+
+    <div *ngIf="rowData.length > 0">
+        <input type="button" class="btn custom-button" (click)="open()" value="New Column" />
+        <app-grid [rowData]="rowData" [columnDefs]="columnDefs"></app-grid>
+        <input [disabled]="!insideForm.bordereauInfo.valid && !rowData.length > 0" type="button"
+            class="btn btn-primary custom-button" (click)="importData()" value="Import" />
+    </div>
+
+</div>

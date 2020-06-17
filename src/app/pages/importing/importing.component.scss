@@ -1,0 +1,16 @@
+.sheet-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    & ng-select{
+        width: 15%;
+        margin-left: 10px;
+    }
+}
+
+.custom-button{
+        background-color: #0c94ab;
+        border-color: #7ccce6;
+        color: white;
+        margin: 5px 0;
+}

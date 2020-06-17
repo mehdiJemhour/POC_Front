@@ -1,0 +1,41 @@
+<div class="calculator mt-3">
+    <input type="text" id="screen" maxlength="20" [(ngModel)]="results" disabled>
+    <div class="calc-buttons">
+        <div class="calc-numbers">
+            <button class="button cancel" (click)="reset()">C</button>
+            <button class="button basic-stuff" (click)="onSelectCalcul('(')">(</button>
+            <button class="button basic-stuff" (click)="onSelectCalcul(')')">)</button>
+            <button *ngFor="let number of numbers" class="button numbers"
+                (click)="onSelectCalcul(number)">{{number}}</button>
+
+            <!-- <button class="button numbers" (click)="onSelectCalcul(7)">7</button>
+            <button class="button numbers" (click)="onSelectCalcul(8)">8</button>
+            <button class="button numbers" (click)="onSelectCalcul(9)">9</button>
+            <button class="button numbers" (click)="onSelectCalcul(4)">4</button>
+            <button class="button numbers" (click)="onSelectCalcul(5)">5</button>
+            <button class="button numbers" (click)="onSelectCalcul(6)">6</button>
+            <button class="button numbers" (click)="onSelectCalcul(1)">1</button>
+            <button class="button numbers" (click)="onSelectCalcul(2)">2</button>
+            <button class="button numbers" (click)="onSelectCalcul(3)">3</button>
+            <button class="button numbers" (click)="onSelectCalcul(0)">0</button> -->
+            <button class="button basic-stuff" (click)="onSelectCalcul('.')">.</button>
+            <!-- <button class="button basic-stuff" (click)="getResult()">=</button> -->
+        </div>
+
+        <div class="calc-operator">
+            <button class="button operator" (click)="onSelectCalcul('*')">*</button>
+            <button class="button operator" (click)="onSelectCalcul('+')">+</button>
+            <button class="button operator" (click)="onSelectCalcul('-')">-</button>
+            <button class="button operator" (click)="onSelectCalcul('/')">/</button>
+
+        </div>
+        <div class="financials-column">
+            <ul>
+                <li *ngFor="let item of excelColumns">
+                    <button class="button item" (click)="onSelectCalcul(item.field)">{{item.field}}</button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="custom-file">
+    <input type='file' class="custom-file-input" id="customFileLang" accept='.xlsx,.xls' (change)='loadFile($event)' />
+    <label class="custom-file-label" for="customFileLang">
+        <span *ngIf="!filename; else showFilename">Choose file</span>
+    </label>
+    <ng-template #showFilename>{{filename}}</ng-template>
+</div>
