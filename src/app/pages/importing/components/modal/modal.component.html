@@ -22,5 +22,6 @@
 
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" (click)="onSave()">Save</button>
+        <button [disabled]="!columnDefinition.field" type="submit" class="btn custom-button"
+            (click)="onSave()">Save</button>
     </div>

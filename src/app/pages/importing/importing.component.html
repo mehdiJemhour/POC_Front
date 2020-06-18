@@ -10,8 +10,8 @@
         <ng-select [items]="sheetNames" (change)="onSelect($event)"></ng-select>
     </div>
 
+    <input type="button" class="btn custom-button" (click)="open()" value="New Column" />
     <div *ngIf="rowData.length > 0">
-        <input type="button" class="btn custom-button" (click)="open()" value="New Column" />
         <app-grid [rowData]="rowData" [columnDefs]="columnDefs"></app-grid>
         <input [disabled]="!insideForm.bordereauInfo.valid && !rowData.length > 0" type="button"
             class="btn btn-primary custom-button" (click)="importData()" value="Import" />
