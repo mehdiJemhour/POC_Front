@@ -77,4 +77,23 @@ export class ImportComponent {
         this.gridElement.agGrid.api.setRowData(this.rowData);
     }
 
+    importData() {
+        const { value } = this.insideForm.bordereauInfo;
+        const { columnDefs, rowData } = this.gridElement.agGrid;
+        const result = {
+            bordereauInfo: value,
+            bordereauData: {
+                columns: columnDefs,
+                rows: rowData
+            }
+        }
+
+        let filename = this.file.name.split(".")[0];
+
+        this.uploadService.uploadBordereau(result, filename).subscribe(_ => {
+            console.log("successfully imported")
+            location.reload();
+        });
+    }
+
 }
